@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const request = require('request')
     , cheerio = require('cheerio')
     , scraper = require('./scraper')
