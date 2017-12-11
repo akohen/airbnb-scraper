@@ -20,6 +20,7 @@ function scrape(roomID) {
   return request(options)
     .then($ => {
       const summary = $('#summary')
+      const type = $('[data-location] a').first()
       const mainContent = summary.next()
       const name = summary.find("div[itemprop='name']").first()
       const details = summary.find('div')
@@ -38,8 +39,9 @@ function scrape(roomID) {
 
       const property = {
         name: name.text(),
+        type: type.text(),
         capacity: getNumber(details.eq(0).text()),
-        type: details.eq(1).text(),
+        bedrooms: getNumber(details.eq(1).text()), // this will return 0 bedrooms for a studio, which sounds acceptable ?
         beds: getNumber(details.eq(2).text()),
         baths: getNumber(details.eq(3).text()),
         amenities: amenities

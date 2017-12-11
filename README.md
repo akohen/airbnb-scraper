@@ -17,12 +17,13 @@ scraper.scrape(PROPERTY_ID)
 
 Each returned object has the following properties:
 * name : String
-* capacity : Integer
 * type : String
+* capacity : Integer
+* bedrooms : Integer
 * beds : Integer
 * baths : Integer
 * amenities : accessible through amenities[TAG] = Bool
 
 ## CLI usage
 `airbnb-scraper PROPERTY_ID PROPERTY_ID...`
-Will return the name of each property
+Will return the name of each property, the type of the property and the maximum number of guests, separated by semicolons

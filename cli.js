@@ -19,5 +19,5 @@ const results = idsToScrape.map( id => {
 Promise.all(results).then(properties => {
   properties
     .filter(i => i) // removing empty responses (if an error was catched)
-    .map(property => console.log(property.name)) // do something with the remaining results
+    .map(property => console.log(`${property.name};${property.type};${property.capacity}`)) // do something with the remaining results
 })
